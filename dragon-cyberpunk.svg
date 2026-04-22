@@ -22,6 +22,7 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+    <style><![CDATA[
       /* CSS Animations for GitHub README compatibility */
       .walk-leg { animation: step 0.28s steps(1, end) infinite; }
       .flame, .star-burst { opacity: 0; transition: opacity 0.1s; }
