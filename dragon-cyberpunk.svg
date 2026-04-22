@@ -79,22 +79,32 @@
   <g id="scene">
     <!-- Dino-like walking motion legs -->
     <g class="walk-leg" transform="translate(0 0)">
-      <line x1="520" y1="220" x2="505" y2="260" stroke="url(#dragonGrad)" stroke-width="6" filter="url(#neonGlow)"/>
-      <line x1="550" y1="218" x2="570" y2="258" stroke="url(#dragonGrad)" stroke-width="6" filter="url(#neonGlow)"/>
+      <polygon points="500,265 520,210 535,210 515,265" fill="url(#dragonGrad)" filter="url(#neonGlow)"/>
+      <polygon points="565,260 545,205 560,205 580,260" fill="url(#dragonGrad)" filter="url(#neonGlow)"/>
     </g>
+
+    <!-- dragon back spikes -->
+    <path filter="url(#neonGlow)"
+          d="M 200 180 L 220 140 L 250 165
+             L 280 110 L 320 145
+             L 360 85  L 400 130
+             L 460 70  L 490 120
+             L 540 100 L 550 140 Z"
+          fill="#ff00c8" opacity="0.8"/>
 
     <!-- dragon body and head -->
     <path filter="url(#neonGlow)"
           d="M180 212 C230 110, 455 85, 560 166 C595 192, 640 195, 676 171
              C668 204, 635 230, 590 236 C548 242, 526 260, 500 278
              C486 248, 486 224, 454 210 C392 178, 286 240, 180 212 Z"
-          fill="none" stroke="url(#dragonGrad)" stroke-width="6" stroke-linejoin="round"/>
+          fill="url(#dragonGrad)"/>
     <path filter="url(#neonGlow)"
           d="M670 157 C712 126, 790 125, 848 154 C815 156, 795 173, 764 186
              C732 198, 699 192, 670 157 Z"
-          fill="none" stroke="url(#dragonGrad)" stroke-width="6"/>
-    <path filter="url(#neonGlow)" d="M752 132 L770 105 L780 136" fill="none" stroke="#67e8f9" stroke-width="4"/>
-    <circle cx="767" cy="157" r="4" fill="#fef08a" filter="url(#neonGlow)"/>
+          fill="url(#dragonGrad)"/>
+          
+    <polygon filter="url(#neonGlow)" points="745,140 770,95 785,135" fill="#67e8f9"/>
+    <circle cx="767" cy="150" r="5" fill="#05030a"/>
 
     <!-- fire only on hover/click -->
     <g class="flame" filter="url(#neonGlow)">
