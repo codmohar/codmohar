@@ -22,14 +22,17 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <style><![CDATA[
-      .walk-leg { animation: step 0.28s steps(1, end) infinite; animation-play-state: paused; }
-      .flame, .star-burst { opacity: 0; }
-      #scene:hover .walk-leg, #scene:active .walk-leg { animation-play-state: running; }
-      #scene:hover .flame, #scene:hover .star-burst,
-      #scene:active .flame, #scene:active .star-burst { opacity: 1; }
-      #scene:hover .flame-core, #scene:active .flame-core { animation: fireWave 0.9s ease-in-out infinite; }
-      #scene:hover .star-burst, #scene:active .star-burst { animation: sparkle 0.6s linear infinite; }
+      /* CSS Animations for GitHub README compatibility */
+      .walk-leg { animation: step 0.28s steps(1, end) infinite; }
+      .flame, .star-burst { opacity: 0; transition: opacity 0.1s; }
+      #scene:active .flame, #scene:active .star-burst, .is-firing .flame, .is-firing .star-burst { opacity: 1; }
+      #scene:active .flame-core, .is-firing .flame-core { animation: fireWave 0.9s ease-in-out infinite; }
+      #scene:active .star-burst, .is-firing .star-burst { animation: sparkle 0.6s linear infinite; }
+      .css-obstacle { animation: scrollObs 2.5s linear infinite; }
+      @keyframes scrollObs {
+        0% { transform: translateX(1280px); }
+        100% { transform: translateX(-100px); }
+      }
       @keyframes step {
         0% { transform: translateY(0px); }
         50% { transform: translateY(7px); }
@@ -62,6 +65,14 @@
     <circle cx="1060" cy="90" r="2"/>
     <circle cx="1130" cy="70" r="2"/>
     <circle cx="1180" cy="125" r="1.8"/>
+  </g>
+
+  <g id="obstacles">
+    <!-- CSS-only animated obstacle for GitHub README display -->
+    <g class="css-obstacle">
+      <rect x="0" y="220" width="25" height="70" fill="#ff00c8" filter="url(#neonGlow)"/>
+      <rect x="-5" y="230" width="35" height="10" fill="#00f5ff"/>
+    </g>
   </g>
 
   <g id="scene">
@@ -104,7 +115,202 @@
   <text x="56" y="74" fill="#e9d5ff" font-size="36" font-family="Segoe UI, Arial, sans-serif" font-weight="700" filter="url(#neonGlow)">
     Tech Playground // AI/ML Side Quests
   </text>
-  <text x="58" y="109" fill="#7dd3fc" font-size="18" font-family="Consolas, monospace">
-    hover the dragon to wake it • click to trigger star-fire
+  <text id="startText" x="58" y="109" fill="#7dd3fc" font-size="18" font-family="Consolas, monospace">
+    PRESS SPACE TO JUMP • CLICK TO THROW FLAMES
   </text>
+  <text id="scoreText" x="1050" y="74" fill="#7dd3fc" font-size="28" font-family="Consolas, monospace" filter="url(#neonGlow)">
+    00000
+  </text>
+  <text id="gameOverText" x="640" y="160" fill="#ff00c8" font-size="48" font-family="Segoe UI, Arial, sans-serif" font-weight="700" text-anchor="middle" filter="url(#neonGlow)" display="none">
+    GAME OVER
+    <tspan x="640" dy="40" fill="#7dd3fc" font-size="24">PRESS SPACE TO RESTART</tspan>
+  </text>
+
+  <script><![CDATA[
+    const scene = document.getElementById("scene");
+    const obstaclesGroup = document.getElementById("obstacles");
+    const scoreText = document.getElementById("scoreText");
+    const gameOverText = document.getElementById("gameOverText");
+    const startText = document.getElementById("startText");
+    
+    let isPlaying = false;
+    let isGameOver = false;
+    let score = 0;
+    let velocityY = 0;
+    let gravity = 0.6;
+    let jumpPower = -12;
+    let dragonY = 0;
+    const baseDragonY = 0;
+    
+    let obstacles = [];
+    let frameCount = 0;
+    let fireTimeout = null;
+
+    // We can't rely on focus inside SVG easily, so attach to window
+    window.addEventListener("keydown", (e) => {
+      if(e.code === "Space") {
+        e.preventDefault();
+        handleAction('jump');
+      }
+    });
+
+    window.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      handleAction('fire');
+    });
+
+    function handleAction(type) {
+      if(isGameOver) {
+        resetGame();
+      } else if(!isPlaying) {
+        startGame();
+        if(type === 'jump') jump();
+        if(type === 'fire') fire();
+      } else {
+        if(type === 'jump') jump();
+        if(type === 'fire') fire();
+      }
+    }
+
+    function jump() {
+      if(dragonY === baseDragonY) {
+        velocityY = jumpPower;
+      }
+    }
+
+    function fire() {
+      scene.classList.add('is-firing');
+      if(fireTimeout) clearTimeout(fireTimeout);
+      
+      fireTimeout = setTimeout(() => {
+        scene.classList.remove('is-firing');
+      }, 500);
+
+      // Destroy obstacles directly in front of the flame
+      obstacles.forEach((obs, index) => {
+        if(obs.x > 600 && obs.x < 1100 && dragonY > -50) { // Dragon needs to be relatively low to hit them
+          obs.element.remove();
+          obstacles.splice(index, 1);
+          score += 50;
+        }
+      });
+    }
+
+    function startGame() {
+      isPlaying = true;
+      startText.style.display = "none";
+      score = 0;
+      obstacles = [];
+      obstaclesGroup.innerHTML = '';
+      scene.classList.add('is-running');
+      requestAnimationFrame(update);
+    }
+
+    function resetGame() {
+      isGameOver = false;
+      gameOverText.style.display = "none";
+      dragonY = baseDragonY;
+      scene.setAttribute("transform", `translate(0, ${dragonY})`);
+      startGame();
+    }
+
+    function spawnObstacle() {
+      const obsElement = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      
+      const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      rect.setAttribute("x", "0");
+      rect.setAttribute("y", "0");
+      rect.setAttribute("width", "25");
+      rect.setAttribute("height", "70");
+      rect.setAttribute("fill", "#ff00c8");
+      rect.setAttribute("filter", "url(#neonGlow)");
+      
+      // Add a glitchy look with a secondary rect
+      const rect2 = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      rect2.setAttribute("x", "-5");
+      rect2.setAttribute("y", "10");
+      rect2.setAttribute("width", "35");
+      rect2.setAttribute("height", "10");
+      rect2.setAttribute("fill", "#00f5ff");
+
+      obsElement.appendChild(rect);
+      obsElement.appendChild(rect2);
+      obstaclesGroup.appendChild(obsElement);
+      
+      obstacles.push({
+        x: 1280,
+        y: 220,
+        width: 25,
+        height: 70,
+        element: obsElement
+      });
+    }
+
+    function update() {
+      if(!isPlaying || isGameOver) return;
+      
+      frameCount++;
+      
+      // Physics
+      velocityY += gravity;
+      dragonY += velocityY;
+      
+      if(dragonY > baseDragonY) {
+        dragonY = baseDragonY;
+        velocityY = 0;
+      }
+      
+      scene.setAttribute("transform", `translate(0, ${dragonY})`);
+      
+      // Score
+      if(frameCount % 5 === 0) {
+        score++;
+        scoreText.textContent = score.toString().padStart(5, '0');
+      }
+      
+      // Spawn obstacles (speed up over time)
+      let spawnRate = Math.max(60, 120 - Math.floor(score / 50));
+      if(frameCount % spawnRate === 0) {
+        if(Math.random() > 0.3) {
+          spawnObstacle();
+        }
+      }
+      
+      // Update obstacles
+      let speed = 8 + Math.floor(score / 200);
+      for(let i = obstacles.length - 1; i >= 0; i--) {
+        let obs = obstacles[i];
+        obs.x -= speed;
+        obs.element.setAttribute("transform", `translate(${obs.x}, ${obs.y})`);
+        
+        if(obs.x < -50) {
+          obs.element.remove();
+          obstacles.splice(i, 1);
+        } else {
+          // Collision detection
+          let dLeft = 460;
+          let dRight = 620;
+          let dTop = 150 + dragonY;
+          let dBottom = 270 + dragonY;
+          
+          let oLeft = obs.x;
+          let oRight = obs.x + obs.width;
+          let oTop = obs.y;
+          let oBottom = obs.y + obs.height;
+          
+          if(dRight > oLeft && dLeft < oRight && dBottom > oTop && dTop < oBottom) {
+            // Game Over
+            isGameOver = true;
+            isPlaying = false;
+            gameOverText.style.display = "block";
+            scene.classList.remove('is-running');
+          }
+        }
+      }
+      
+      if(isPlaying) {
+        requestAnimationFrame(update);
+      }
+    }
+  ]]></script>
 </svg>
