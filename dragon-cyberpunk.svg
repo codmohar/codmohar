@@ -77,36 +77,253 @@
   </g>
 
   <g id="scene">
-    <!-- Dino-like walking motion legs -->
-    <g class="walk-leg" transform="translate(0 0)">
-      <polygon points="500,265 520,210 535,210 515,265" fill="url(#dragonGrad)" filter="url(#neonGlow)"/>
-      <polygon points="565,260 545,205 560,205 580,260" fill="url(#dragonGrad)" filter="url(#neonGlow)"/>
-    </g>
-
-    <!-- dragon back spikes -->
-    <path filter="url(#neonGlow)"
-          d="M 200 180 L 220 140 L 250 165
-             L 280 110 L 320 145
-             L 360 85  L 400 130
-             L 460 70  L 490 120
-             L 540 100 L 550 140 Z"
-          fill="#ff00c8" opacity="0.8"/>
-
-    <!-- dragon body and head -->
-    <path filter="url(#neonGlow)"
-          d="M180 212 C230 110, 455 85, 560 166 C595 192, 640 195, 676 171
-             C668 204, 635 230, 590 236 C548 242, 526 260, 500 278
-             C486 248, 486 224, 454 210 C392 178, 286 240, 180 212 Z"
-          fill="url(#dragonGrad)"/>
-    <path filter="url(#neonGlow)"
-          d="M670 157 C712 126, 790 125, 848 154 C815 156, 795 173, 764 186
-             C732 198, 699 192, 670 157 Z"
-          fill="url(#dragonGrad)"/>
-          
-    <polygon filter="url(#neonGlow)" points="745,140 770,95 785,135" fill="#67e8f9"/>
-    <circle cx="767" cy="150" r="5" fill="#05030a"/>
-
-    <!-- fire only on hover/click -->
+<!-- T-Rex Body -->
+<g filter="url(#neonGlow)">
+<g fill="url(#dragonGrad)">
+  <rect x="801" y="100" width="7.5" height="7.5" />
+  <rect x="808" y="100" width="7.5" height="7.5" />
+  <rect x="815" y="100" width="7.5" height="7.5" />
+  <rect x="822" y="100" width="7.5" height="7.5" />
+  <rect x="829" y="100" width="7.5" height="7.5" />
+  <rect x="836" y="100" width="7.5" height="7.5" />
+  <rect x="843" y="100" width="7.5" height="7.5" />
+  <rect x="850" y="100" width="7.5" height="7.5" />
+  <rect x="794" y="107" width="7.5" height="7.5" />
+  <rect x="808" y="107" width="7.5" height="7.5" />
+  <rect x="815" y="107" width="7.5" height="7.5" />
+  <rect x="822" y="107" width="7.5" height="7.5" />
+  <rect x="829" y="107" width="7.5" height="7.5" />
+  <rect x="836" y="107" width="7.5" height="7.5" />
+  <rect x="843" y="107" width="7.5" height="7.5" />
+  <rect x="850" y="107" width="7.5" height="7.5" />
+  <rect x="794" y="114" width="7.5" height="7.5" />
+  <rect x="801" y="114" width="7.5" height="7.5" />
+  <rect x="808" y="114" width="7.5" height="7.5" />
+  <rect x="815" y="114" width="7.5" height="7.5" />
+  <rect x="822" y="114" width="7.5" height="7.5" />
+  <rect x="829" y="114" width="7.5" height="7.5" />
+  <rect x="836" y="114" width="7.5" height="7.5" />
+  <rect x="843" y="114" width="7.5" height="7.5" />
+  <rect x="850" y="114" width="7.5" height="7.5" />
+  <rect x="794" y="121" width="7.5" height="7.5" />
+  <rect x="801" y="121" width="7.5" height="7.5" />
+  <rect x="808" y="121" width="7.5" height="7.5" />
+  <rect x="794" y="128" width="7.5" height="7.5" />
+  <rect x="801" y="128" width="7.5" height="7.5" />
+  <rect x="808" y="128" width="7.5" height="7.5" />
+  <rect x="815" y="128" width="7.5" height="7.5" />
+  <rect x="822" y="128" width="7.5" height="7.5" />
+  <rect x="829" y="128" width="7.5" height="7.5" />
+  <rect x="836" y="128" width="7.5" height="7.5" />
+  <rect x="843" y="128" width="7.5" height="7.5" />
+  <rect x="850" y="128" width="7.5" height="7.5" />
+  <rect x="794" y="135" width="7.5" height="7.5" />
+  <rect x="801" y="135" width="7.5" height="7.5" />
+  <rect x="808" y="135" width="7.5" height="7.5" />
+  <rect x="815" y="135" width="7.5" height="7.5" />
+  <rect x="822" y="135" width="7.5" height="7.5" />
+  <rect x="829" y="135" width="7.5" height="7.5" />
+  <rect x="836" y="135" width="7.5" height="7.5" />
+  <rect x="843" y="135" width="7.5" height="7.5" />
+  <rect x="850" y="135" width="7.5" height="7.5" />
+  <rect x="794" y="142" width="7.5" height="7.5" />
+  <rect x="801" y="142" width="7.5" height="7.5" />
+  <rect x="808" y="142" width="7.5" height="7.5" />
+  <rect x="815" y="142" width="7.5" height="7.5" />
+  <rect x="794" y="149" width="7.5" height="7.5" />
+  <rect x="801" y="149" width="7.5" height="7.5" />
+  <rect x="808" y="149" width="7.5" height="7.5" />
+  <rect x="815" y="149" width="7.5" height="7.5" />
+  <rect x="822" y="149" width="7.5" height="7.5" />
+  <rect x="829" y="149" width="7.5" height="7.5" />
+  <rect x="836" y="149" width="7.5" height="7.5" />
+  <rect x="843" y="149" width="7.5" height="7.5" />
+  <rect x="724" y="156" width="7.5" height="7.5" />
+  <rect x="787" y="156" width="7.5" height="7.5" />
+  <rect x="794" y="156" width="7.5" height="7.5" />
+  <rect x="801" y="156" width="7.5" height="7.5" />
+  <rect x="808" y="156" width="7.5" height="7.5" />
+  <rect x="815" y="156" width="7.5" height="7.5" />
+  <rect x="822" y="156" width="7.5" height="7.5" />
+  <rect x="829" y="156" width="7.5" height="7.5" />
+  <rect x="836" y="156" width="7.5" height="7.5" />
+  <rect x="843" y="156" width="7.5" height="7.5" />
+  <rect x="724" y="163" width="7.5" height="7.5" />
+  <rect x="731" y="163" width="7.5" height="7.5" />
+  <rect x="780" y="163" width="7.5" height="7.5" />
+  <rect x="787" y="163" width="7.5" height="7.5" />
+  <rect x="794" y="163" width="7.5" height="7.5" />
+  <rect x="801" y="163" width="7.5" height="7.5" />
+  <rect x="808" y="163" width="7.5" height="7.5" />
+  <rect x="815" y="163" width="7.5" height="7.5" />
+  <rect x="822" y="163" width="7.5" height="7.5" />
+  <rect x="829" y="163" width="7.5" height="7.5" />
+  <rect x="836" y="163" width="7.5" height="7.5" />
+  <rect x="843" y="163" width="7.5" height="7.5" />
+  <rect x="850" y="163" width="7.5" height="7.5" />
+  <rect x="724" y="170" width="7.5" height="7.5" />
+  <rect x="731" y="170" width="7.5" height="7.5" />
+  <rect x="738" y="170" width="7.5" height="7.5" />
+  <rect x="773" y="170" width="7.5" height="7.5" />
+  <rect x="780" y="170" width="7.5" height="7.5" />
+  <rect x="787" y="170" width="7.5" height="7.5" />
+  <rect x="794" y="170" width="7.5" height="7.5" />
+  <rect x="801" y="170" width="7.5" height="7.5" />
+  <rect x="808" y="170" width="7.5" height="7.5" />
+  <rect x="815" y="170" width="7.5" height="7.5" />
+  <rect x="822" y="170" width="7.5" height="7.5" />
+  <rect x="829" y="170" width="7.5" height="7.5" />
+  <rect x="836" y="170" width="7.5" height="7.5" />
+  <rect x="843" y="170" width="7.5" height="7.5" />
+  <rect x="850" y="170" width="7.5" height="7.5" />
+  <rect x="724" y="177" width="7.5" height="7.5" />
+  <rect x="731" y="177" width="7.5" height="7.5" />
+  <rect x="738" y="177" width="7.5" height="7.5" />
+  <rect x="745" y="177" width="7.5" height="7.5" />
+  <rect x="773" y="177" width="7.5" height="7.5" />
+  <rect x="780" y="177" width="7.5" height="7.5" />
+  <rect x="787" y="177" width="7.5" height="7.5" />
+  <rect x="794" y="177" width="7.5" height="7.5" />
+  <rect x="801" y="177" width="7.5" height="7.5" />
+  <rect x="808" y="177" width="7.5" height="7.5" />
+  <rect x="815" y="177" width="7.5" height="7.5" />
+  <rect x="822" y="177" width="7.5" height="7.5" />
+  <rect x="829" y="177" width="7.5" height="7.5" />
+  <rect x="836" y="177" width="7.5" height="7.5" />
+  <rect x="843" y="177" width="7.5" height="7.5" />
+  <rect x="850" y="177" width="7.5" height="7.5" />
+  <rect x="731" y="184" width="7.5" height="7.5" />
+  <rect x="738" y="184" width="7.5" height="7.5" />
+  <rect x="745" y="184" width="7.5" height="7.5" />
+  <rect x="766" y="184" width="7.5" height="7.5" />
+  <rect x="773" y="184" width="7.5" height="7.5" />
+  <rect x="780" y="184" width="7.5" height="7.5" />
+  <rect x="787" y="184" width="7.5" height="7.5" />
+  <rect x="794" y="184" width="7.5" height="7.5" />
+  <rect x="801" y="184" width="7.5" height="7.5" />
+  <rect x="808" y="184" width="7.5" height="7.5" />
+  <rect x="815" y="184" width="7.5" height="7.5" />
+  <rect x="822" y="184" width="7.5" height="7.5" />
+  <rect x="829" y="184" width="7.5" height="7.5" />
+  <rect x="836" y="184" width="7.5" height="7.5" />
+  <rect x="843" y="184" width="7.5" height="7.5" />
+  <rect x="850" y="184" width="7.5" height="7.5" />
+  <rect x="738" y="191" width="7.5" height="7.5" />
+  <rect x="745" y="191" width="7.5" height="7.5" />
+  <rect x="752" y="191" width="7.5" height="7.5" />
+  <rect x="759" y="191" width="7.5" height="7.5" />
+  <rect x="766" y="191" width="7.5" height="7.5" />
+  <rect x="773" y="191" width="7.5" height="7.5" />
+  <rect x="780" y="191" width="7.5" height="7.5" />
+  <rect x="787" y="191" width="7.5" height="7.5" />
+  <rect x="794" y="191" width="7.5" height="7.5" />
+  <rect x="801" y="191" width="7.5" height="7.5" />
+  <rect x="808" y="191" width="7.5" height="7.5" />
+  <rect x="815" y="191" width="7.5" height="7.5" />
+  <rect x="822" y="191" width="7.5" height="7.5" />
+  <rect x="829" y="191" width="7.5" height="7.5" />
+  <rect x="836" y="191" width="7.5" height="7.5" />
+  <rect x="843" y="191" width="7.5" height="7.5" />
+  <rect x="850" y="191" width="7.5" height="7.5" />
+  <rect x="738" y="198" width="7.5" height="7.5" />
+  <rect x="745" y="198" width="7.5" height="7.5" />
+  <rect x="752" y="198" width="7.5" height="7.5" />
+  <rect x="759" y="198" width="7.5" height="7.5" />
+  <rect x="766" y="198" width="7.5" height="7.5" />
+  <rect x="773" y="198" width="7.5" height="7.5" />
+  <rect x="780" y="198" width="7.5" height="7.5" />
+  <rect x="787" y="198" width="7.5" height="7.5" />
+  <rect x="794" y="198" width="7.5" height="7.5" />
+  <rect x="801" y="198" width="7.5" height="7.5" />
+  <rect x="808" y="198" width="7.5" height="7.5" />
+  <rect x="815" y="198" width="7.5" height="7.5" />
+  <rect x="822" y="198" width="7.5" height="7.5" />
+  <rect x="829" y="198" width="7.5" height="7.5" />
+  <rect x="836" y="198" width="7.5" height="7.5" />
+  <rect x="843" y="198" width="7.5" height="7.5" />
+  <rect x="850" y="198" width="7.5" height="7.5" />
+  <rect x="745" y="205" width="7.5" height="7.5" />
+  <rect x="752" y="205" width="7.5" height="7.5" />
+  <rect x="759" y="205" width="7.5" height="7.5" />
+  <rect x="766" y="205" width="7.5" height="7.5" />
+  <rect x="773" y="205" width="7.5" height="7.5" />
+  <rect x="780" y="205" width="7.5" height="7.5" />
+  <rect x="787" y="205" width="7.5" height="7.5" />
+  <rect x="794" y="205" width="7.5" height="7.5" />
+  <rect x="801" y="205" width="7.5" height="7.5" />
+  <rect x="808" y="205" width="7.5" height="7.5" />
+  <rect x="815" y="205" width="7.5" height="7.5" />
+  <rect x="822" y="205" width="7.5" height="7.5" />
+  <rect x="829" y="205" width="7.5" height="7.5" />
+  <rect x="836" y="205" width="7.5" height="7.5" />
+  <rect x="843" y="205" width="7.5" height="7.5" />
+  <rect x="850" y="205" width="7.5" height="7.5" />
+  <rect x="752" y="212" width="7.5" height="7.5" />
+  <rect x="759" y="212" width="7.5" height="7.5" />
+  <rect x="766" y="212" width="7.5" height="7.5" />
+  <rect x="773" y="212" width="7.5" height="7.5" />
+  <rect x="780" y="212" width="7.5" height="7.5" />
+  <rect x="787" y="212" width="7.5" height="7.5" />
+  <rect x="794" y="212" width="7.5" height="7.5" />
+  <rect x="801" y="212" width="7.5" height="7.5" />
+  <rect x="808" y="212" width="7.5" height="7.5" />
+  <rect x="815" y="212" width="7.5" height="7.5" />
+  <rect x="822" y="212" width="7.5" height="7.5" />
+  <rect x="829" y="212" width="7.5" height="7.5" />
+  <rect x="836" y="212" width="7.5" height="7.5" />
+  <rect x="843" y="212" width="7.5" height="7.5" />
+  <rect x="759" y="219" width="7.5" height="7.5" />
+  <rect x="766" y="219" width="7.5" height="7.5" />
+  <rect x="773" y="219" width="7.5" height="7.5" />
+  <rect x="780" y="219" width="7.5" height="7.5" />
+  <rect x="787" y="219" width="7.5" height="7.5" />
+  <rect x="794" y="219" width="7.5" height="7.5" />
+  <rect x="801" y="219" width="7.5" height="7.5" />
+  <rect x="808" y="219" width="7.5" height="7.5" />
+  <rect x="815" y="219" width="7.5" height="7.5" />
+  <rect x="822" y="219" width="7.5" height="7.5" />
+  <rect x="829" y="219" width="7.5" height="7.5" />
+  <rect x="836" y="219" width="7.5" height="7.5" />
+  <rect x="766" y="226" width="7.5" height="7.5" />
+  <rect x="773" y="226" width="7.5" height="7.5" />
+  <rect x="780" y="226" width="7.5" height="7.5" />
+  <rect x="787" y="226" width="7.5" height="7.5" />
+  <rect x="794" y="226" width="7.5" height="7.5" />
+  <rect x="801" y="226" width="7.5" height="7.5" />
+  <rect x="808" y="226" width="7.5" height="7.5" />
+  <rect x="815" y="226" width="7.5" height="7.5" />
+  <rect x="822" y="226" width="7.5" height="7.5" />
+  <rect x="829" y="226" width="7.5" height="7.5" />
+  <rect x="773" y="233" width="7.5" height="7.5" />
+  <rect x="780" y="233" width="7.5" height="7.5" />
+  <rect x="787" y="233" width="7.5" height="7.5" />
+  <rect x="794" y="233" width="7.5" height="7.5" />
+  <rect x="801" y="233" width="7.5" height="7.5" />
+  <rect x="808" y="233" width="7.5" height="7.5" />
+  <rect x="815" y="233" width="7.5" height="7.5" />
+  <rect x="822" y="233" width="7.5" height="7.5" />
+</g>
+</g>
+<!-- T-Rex Legs -->
+<g class="walk-leg" filter="url(#neonGlow)">
+<g fill="url(#dragonGrad)">
+  <rect x="780" y="240" width="7.5" height="7.5" />
+  <rect x="787" y="240" width="7.5" height="7.5" />
+  <rect x="794" y="240" width="7.5" height="7.5" />
+  <rect x="808" y="240" width="7.5" height="7.5" />
+  <rect x="815" y="240" width="7.5" height="7.5" />
+  <rect x="780" y="247" width="7.5" height="7.5" />
+  <rect x="787" y="247" width="7.5" height="7.5" />
+  <rect x="815" y="247" width="7.5" height="7.5" />
+  <rect x="780" y="254" width="7.5" height="7.5" />
+  <rect x="815" y="254" width="7.5" height="7.5" />
+  <rect x="773" y="261" width="7.5" height="7.5" />
+  <rect x="780" y="261" width="7.5" height="7.5" />
+  <rect x="808" y="261" width="7.5" height="7.5" />
+  <rect x="815" y="261" width="7.5" height="7.5" />
+</g>
+</g>
+        <!-- fire only on hover/click -->
     <g class="flame" filter="url(#neonGlow)">
       <path class="flame-core"
             d="M850 166 C930 130, 1010 136, 1110 151 C1160 160, 1210 154, 1260 140
@@ -199,7 +416,7 @@
 
       // Destroy obstacles directly in front of the flame
       obstacles.forEach((obs, index) => {
-        if(obs.x > 600 && obs.x < 1100 && dragonY > -50) { // Dragon needs to be relatively low to hit them
+        if(obs.x > 850 && obs.x < 1280 && dragonY > -50) { // Dragon needs to be relatively low to hit them
           obs.element.remove();
           obstacles.splice(index, 1);
           score += 50;
@@ -299,10 +516,10 @@
           obstacles.splice(i, 1);
         } else {
           // Collision detection
-          let dLeft = 460;
-          let dRight = 620;
-          let dTop = 150 + dragonY;
-          let dBottom = 270 + dragonY;
+          let dLeft = 703;
+          let dRight = 850;
+          let dTop = 100 + dragonY;
+          let dBottom = 268 + dragonY;
           
           let oLeft = obs.x;
           let oRight = obs.x + obs.width;
